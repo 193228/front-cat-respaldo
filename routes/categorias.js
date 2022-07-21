@@ -97,11 +97,26 @@ router.post('/findByIdToro',async(req,res)=>{
 })
 
 router.post('/updateBecerroByCategory',async(req,res)=>{ //Incompleto. Falta actualizar la categoria
-    //id = req.body['id_categoria'];
-    console.log(req.body)
-    const listarJuego = await becerroCategory_DAO.prototype.updateCategoria(req.body)//categoria_DAO.prototype.getCategoryById(req.body.id)
-    res.send(listarJuego)
-    //res.send("prueba")
+    await becerroCategory_DAO.prototype.updateCategoria(req.body).then(function (user){
+        valores = user.dataValues;
+        res.send(valores)
+    })
 })
+
+router.post('/deleteBecerroByCategory',async(req,res)=>{ //Incompleto. Falta actualizar la categoria
+    await becerroCategory_DAO.prototype.deleteBecerroCategoria(req.body.id).then(function (user){
+        valores = user.dataValues;
+        console.log(valores);
+        res.send(valores)
+    })
+})
+
+router.post('/findCategoryBecerroByIdBecerro',async(req,res)=>{ //Incompleto. Falta actualizar la categoria
+    await becerroCategory_DAO.prototype.findCategoryByIdBecerro(req.body.id_becerro).then(function (user){
+        console.log(user);
+        res.send(user)
+    })
+})
+
 
 module.exports = router;

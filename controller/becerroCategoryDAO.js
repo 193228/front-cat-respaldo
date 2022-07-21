@@ -16,10 +16,17 @@ class becerroCategory {
         }
     }
 
-    async updateCategoria(listaBecerros,id){
+    async updateCategoria(Becerro){
         try {
-            return await becerro_category_model.upsert(listaBecerros
-            )//game.create(usuario)
+            return await becerro_category_model.create(Becerro)//game.create(usuario)
+        } catch (error) {
+            return error
+        }
+    }
+
+    async deleteBecerroCategoria(idAnimal){
+        try {
+            return await becerro_category_model.destroy({where:{id:idAnimal}})//game.create(usuario)
         } catch (error) {
             return error
         }
@@ -40,6 +47,14 @@ class becerroCategory {
     async findByIdBecerro(idBecerro) {
         try {
             return await becerro_model.findByPk(idBecerro)
+        } catch (error) {
+            return error
+        }
+    }
+
+    async findCategoryByIdBecerro(id_becerro){
+        try {
+            return await becerro_category_model.findOne({where:{id_becerro:id_becerro}})//game.create(usuario)
         } catch (error) {
             return error
         }
