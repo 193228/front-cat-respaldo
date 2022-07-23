@@ -118,5 +118,16 @@ router.post('/findCategoryBecerroByIdBecerro',async(req,res)=>{ //Incompleto. Fa
     })
 })
 
+router.post('/findCategoryBecerroById',async(req,res)=>{ //Incompleto. Falta actualizar la categoria
+    await becerroCategory_DAO.prototype.findCategoryById(req.body.id).then(function (user){
+        console.log(user);
+        res.send(user)
+    })
+})
+
+router.post('/deleteCategoria',async(req,res)=>{ //Incompleto. Falta actualizar la categoria
+    await categoria_DAO.prototype.deleteCategoryById(req.body.id)//categoria_DAO.prototype.getCategoryById(req.body.id)
+    res.send("se elimino");
+})
 
 module.exports = router;

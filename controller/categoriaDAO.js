@@ -39,6 +39,14 @@ class categorias {
         }
     }
 
+    async deleteCategoryById(id){
+        try {
+            return await categoria_model.destroy({ where: { id: id } });
+        } catch (error) {
+            return error
+        }
+    }
+
 }
 
 module.exports = categorias

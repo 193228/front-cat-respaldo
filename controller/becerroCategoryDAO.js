@@ -60,6 +60,14 @@ class becerroCategory {
         }
     }
 
+    async findCategoryById(id){
+        try {
+            return await becerro_category_model.findOne({where:{id:id}})//game.create(usuario)
+        } catch (error) {
+            return error
+        }
+    }
+
 }
 
 module.exports = becerroCategory
