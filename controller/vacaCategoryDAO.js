@@ -59,6 +59,14 @@ class vacaCategory {
             return error
         }
     }
+    async deleteVacaByIdVaca(idAnimal){
+        try {
+            await vaca_category_model.destroy({where:{id_vaca:idAnimal}})//game.create(usuario)
+            return  {status:'ok'}
+        } catch (error) {
+            return error
+        }
+    }
 
 }
 

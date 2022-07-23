@@ -60,6 +60,16 @@ class toroCategory {
         }
     }
 
+    async deleteTorobyIdToro(idAnimal){
+        try {
+            await toro_category_model.destroy({where:{id_toro:idAnimal}})//game.create(usuario)
+            return  {status:'ok'}
+        } catch (error) {
+            return error
+        }
+    }
+
+
 }
 
 module.exports = toroCategory

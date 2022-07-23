@@ -177,4 +177,28 @@ router.post('/updateCategoria',async(req,res)=>{ //Incompleto. Falta actualizar 
     res.send("Se Actualizo Correctamente");
 })
 
+router.post('/deleteBecerroByIdBecerro', async(req,res)=>{ //Incompleto. Falta actualizar la categoria
+    console.log(req.body.id);
+    await becerroCategory_DAO.prototype.deleteBecerrobyIdBecerro(req.body.id).then(function (user){
+
+        res.send(user);
+    })
+})
+
+router.post('/deleteVacaByIdVaca', async(req,res)=>{ //Incompleto. Falta actualizar la categoria
+    console.log(req.body.id);
+    await vacaCategory_DAO.prototype.deleteVacaByIdVaca(req.body.id).then(function (user){
+
+        res.send(user);
+    })
+})
+
+router.post('/deleteToroByIdToro', async(req,res)=>{ //Incompleto. Falta actualizar la categoria
+    console.log(req.body.id);
+    await toroCategory_DAO.prototype.deleteTorobyIdToro(req.body.id).then(function (user){
+
+        res.send(user);
+    })
+})
+
 module.exports = router;
