@@ -47,6 +47,14 @@ class categorias {
         }
     }
 
+    async updateCategory(category, id){
+        try {
+            return await categoria_model.update(category,{ where: { id: id } });
+        } catch (error) {
+            return error
+        }
+    }
+
 }
 
 module.exports = categorias

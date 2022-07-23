@@ -170,4 +170,11 @@ router.post('/deleteCategoria',async(req,res)=>{ //Incompleto. Falta actualizar 
     res.send("se elimino");
 })
 
+router.post('/updateCategoria',async(req,res)=>{ //Incompleto. Falta actualizar la categoria
+    categoriaActualizar = new categoria_DAO(req.body['nombre'],req.body['descripcion']);
+    var id = req.body['id'];
+    var actualizo = await categoria_DAO.prototype.updateCategory(categoriaActualizar,id);
+    res.send("Se Actualizo Correctamente");
+})
+
 module.exports = router;
