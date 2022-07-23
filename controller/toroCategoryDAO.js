@@ -36,6 +36,30 @@ class toroCategory {
         }
     }
 
+    async findCategoryByIdToro(id_toro){
+        try {
+            return await toro_category_model.findOne({where:{id_toro:id_toro}})//game.create(usuario)
+        } catch (error) {
+            return error
+        }
+    }
+
+    async deleteToroCategoria(idAnimal){
+        try {
+            return await toro_category_model.destroy({where:{id:idAnimal}})//game.create(usuario)
+        } catch (error) {
+            return error
+        }
+    }
+
+    async updateCategoria(toro){
+        try {
+            return await toro_category_model.create(toro)//game.create(usuario)
+        } catch (error) {
+            return error
+        }
+    }
+
 }
 
 module.exports = toroCategory

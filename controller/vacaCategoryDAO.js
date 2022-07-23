@@ -36,6 +36,30 @@ class vacaCategory {
         }
     }
 
+    async findCategoryByIdVaca(id_vaca){
+        try {
+            return await vaca_category_model.findOne({where:{id_vaca:id_vaca}})//game.create(usuario)
+        } catch (error) {
+            return error
+        }
+    }
+
+    async deleteVacaCategoria(idAnimal){
+        try {
+            return await vaca_category_model.destroy({where:{id:idAnimal}})//game.create(usuario)
+        } catch (error) {
+            return error
+        }
+    }
+
+    async updateCategoria(Becerro){
+        try {
+            return await vaca_category_model.create(Becerro)//game.create(usuario)
+        } catch (error) {
+            return error
+        }
+    }
+
 }
 
 module.exports = vacaCategory
