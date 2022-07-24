@@ -3,12 +3,13 @@ const toro_model =  require('../model/toros')
 
 class toroCategory {
 
-    constructor(idtoro,idcategoria){
+    constructor(idtoro,idcategoria,id_usuario){
         this.id_toro = idtoro,
         this.id_categoria = idcategoria
+        this.id_usuario = id_usuario
     }
     
-    async createCategoria(toroCategoria) {
+    async createCategoria(toroCategoria,idusuario) {
         try {
             return await toro_category_model.bulkCreate(toroCategoria)//game.create(usuario)
         } catch (error) {
@@ -16,10 +17,11 @@ class toroCategory {
         }
     }
 
-    async listToroCategory(idCategoria) {
+    async listToroCategory(idusuario,idCategoria) {
         try {
             return await toro_category_model.findAll({
                 where: {
+                    id_usuario: idusuario,
                     id_categoria: idCategoria 
                 }
             })
@@ -44,9 +46,9 @@ class toroCategory {
         }
     }
 
-    async deleteToroCategoria(idAnimal){
+    async deleteToroCategoria(idCategoria,idAnimal,idUsuario){
         try {
-            return await toro_category_model.destroy({where:{id:idAnimal}})//game.create(usuario)
+            return await toro_category_model.destroy({where:{id_categoria:idCategoria,id_toro:idAnimal,id_usuario:idUsuario}})//game.create(usuario)
         } catch (error) {
             return error
         }
@@ -64,6 +66,18 @@ class toroCategory {
         try {
             await toro_category_model.destroy({where:{id_toro:idAnimal}})//game.create(usuario)
             return  {status:'ok'}
+        } catch (error) {
+            return error
+        }
+    }
+
+    async listToros(id_usuario) {
+        try {
+            return await toro_category_model.findAll({
+                where: {
+                    id_usuario: id_usuario 
+                }
+            })
         } catch (error) {
             return error
         }

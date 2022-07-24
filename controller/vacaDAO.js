@@ -2,7 +2,8 @@ const vaca_model =  require('../model/vacas')
 
 class vacas {
 
-    constructor(nombre,descripcion){
+    constructor(id_usuario,nombre,descripcion){
+        this.id_usuario = id_usuario
         this.nombreCategoria = nombre,
         this.descripcionCategoria = descripcion
     }
@@ -17,7 +18,7 @@ class vacas {
 
     async listVacas() { //altgr + comilla inbertida
         try {
-            return await vaca_model.findAll()         
+            return await vaca_model.findAll({ where: {id_usuario: idusuario} })         
         } catch (error) {
             return error
         }

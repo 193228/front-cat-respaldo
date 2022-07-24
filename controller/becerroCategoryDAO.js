@@ -3,14 +3,15 @@ const becerro_model =  require('../model/becerros')
 
 class becerroCategory {
 
-    constructor(idbecerro,idcategoria){
+    constructor(idbecerro,idcategoria, id_usuario){
+        this.id_usuario = id_usuario,
         this.id_becerro = idbecerro,
         this.id_categoria = idcategoria
     }
     
     async createCategoria(becerroCategoria) {
         try {
-            return await becerro_category_model.bulkCreate(becerroCategoria)//game.create(usuario)
+            return await becerro_category_model.bulkCreate(becerroCategoria);//game.create(usuario)
         } catch (error) {
             return error
         }
@@ -24,18 +25,19 @@ class becerroCategory {
         }
     }
 
-    async deleteBecerroCategoria(idAnimal){
+    async deleteBecerroCategoria(idCategoria,idAnimal,idUsuario){
         try {
-            return await becerro_category_model.destroy({where:{id:idAnimal}})//game.create(usuario)
+            return await becerro_category_model.destroy({where:{id_categoria:idCategoria,id_becerro:idAnimal,id_usuario:idUsuario}})//game.create(usuario)
         } catch (error) {
             return error
         }
     }
 
-    async listBecerroCategory(idCategoria) {
+    async listBecerroCategory(idusuario,idCategoria) {
         try {
             return await becerro_category_model.findAll({
                 where: {
+                    id_usuario: idusuario,
                     id_categoria: idCategoria 
                 }
             })
@@ -72,6 +74,18 @@ class becerroCategory {
         try {
             await becerro_category_model.destroy({where:{id_becerro:idAnimal}})//game.create(usuario)
             return  {status:'ok'}
+        } catch (error) {
+            return error
+        }
+    }
+
+    async listBecerros(id_usuario) {
+        try {
+            return await becerro_category_model.findAll({
+                where: {
+                    id_usuario: id_usuario 
+                }
+            })
         } catch (error) {
             return error
         }

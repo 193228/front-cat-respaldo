@@ -2,7 +2,8 @@ const becerros_model =  require('../model/becerros')
 
 class becerros {
 
-    constructor(nombre,descripcion){
+    constructor(id_usuario,nombre,descripcion){
+        this.id_usuario = id_usuario
         this.nombreCategoria = nombre,
         this.descripcionCategoria = descripcion
     }
@@ -17,7 +18,7 @@ class becerros {
 
     async listBecerros() { //altgr + comilla inbertida
         try {
-            return await becerros_model.findAll()         
+            return await becerros_model.findAll({ where: {id_usuario: idusuario} })         
         } catch (error) {
             return error
         }

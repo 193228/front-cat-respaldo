@@ -16,9 +16,9 @@ class categorias {
         }
     }
 
-    async listCategorias() { //altgr + comilla inbertida
+    async listCategorias(idusuario) { //altgr + comilla inbertida
         try {
-            return await categoria_model.findAll()         
+            return await categoria_model.findAll({ where: {id_usuario: idusuario} })         
         } catch (error) {
             return error
         }
@@ -40,17 +40,17 @@ class categorias {
         }
     }
 
-    async deleteCategoryById(id){
+    async deleteCategoryById(idusuario,idcategoria){
         try {
-            return await categoria_model.destroy({ where: { id: id } });
+            return await categoria_model.destroy({ where: {id:idcategoria, id_usuario: idusuario} });
         } catch (error) {
             return error
         }
     }
 
-    async updateCategory(category, id){
+    async updateCategory(category, idusuario,idcategoria){
         try {
-            return await categoria_model.update(category,{ where: { id: id } });
+            return await categoria_model.update(category,{ where: { id:idcategoria, id_usuario:idusuario } });
         } catch (error) {
             return error
         }

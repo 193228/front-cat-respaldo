@@ -2,6 +2,7 @@ const db = require('../db/connection')
 const {DataTypes}  = require('sequelize')
 
 const Toro_Categoria = db.define('toro_categoria', {
+    id_usuario: DataTypes.INTEGER,
     id_toro: DataTypes.INTEGER,
     id_categoria: DataTypes.INTEGER,
 }, {});

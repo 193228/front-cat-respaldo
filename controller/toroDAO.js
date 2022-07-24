@@ -2,9 +2,10 @@ const toro_model =  require('../model/toros')
 
 class toros {
 
-    constructor(nombre,descripcion){
+    constructor(nombre,descripcion,id_usuario){
         this.nombreCategoria = nombre,
-        this.descripcionCategoria = descripcion
+        this.descripcionCategoria = descripcion,
+        this.id_usuario = id_usuario
     }
     
     async createCategoria(categoria) {
@@ -17,7 +18,7 @@ class toros {
 
     async listToros() { //altgr + comilla inbertida
         try {
-            return await toro_model.findAll()            
+            return await toro_model.findAll({ where: {id_usuario: idusuario} })            
         } catch (error) {
             return error
         }
