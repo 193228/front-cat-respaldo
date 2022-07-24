@@ -16,9 +16,9 @@ class toros {
         }
     }
 
-    async listToros() { //altgr + comilla inbertida
+    async listToros(idUsuario) { //altgr + comilla inbertida
         try {
-            return await toro_model.findAll({ where: {id_usuario: idusuario} })            
+            return await toro_model.findAll({ where: {id_usuario: idUsuario} })            
         } catch (error) {
             return error
         }

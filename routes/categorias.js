@@ -26,19 +26,19 @@ router.post('/createCategoria',async(req,res)=>{
 
 router.post('/allCategorias/allBecerros',async(req,res)=>{
     idUsuario = req.body.id_usuario
-    const becerros =  await becerroCategory_DAO.prototype.listBecerros(idUsuario)
+    const becerros =  await becerro_DAO.prototype.listBecerros(idUsuario)
     res.send(becerros)
 })
 
 router.post('/allCategorias/allToros',async(req,res)=>{
     idUsuario = req.body.id_usuario
-    const toros =  await toroCategory_DAO.prototype.listToros(idUsuario)
+    const toros =  await toro_DAO.prototype.listToros(idUsuario)
     res.send(toros)
 })
 
 router.post('/allCategorias/allVacas',async(req,res)=>{
     idUsuario = req.body.id_usuario
-    const vacas = await vacaCategory_DAO.prototype.listVacaUser(idUsuario);
+    const vacas = await vaca_DAO.prototype.listVacas(idUsuario);
     res.send(vacas)
 })
 

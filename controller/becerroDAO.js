@@ -16,9 +16,9 @@ class becerros {
         }
     }
 
-    async listBecerros() { //altgr + comilla inbertida
+    async listBecerros(idUsuario) { //altgr + comilla inbertida
         try {
-            return await becerros_model.findAll({ where: {id_usuario: idusuario} })         
+            return await becerros_model.findAll({ where: {id_usuario: idUsuario} })         
         } catch (error) {
             return error
         }

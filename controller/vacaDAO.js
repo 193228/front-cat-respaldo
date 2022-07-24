@@ -16,9 +16,9 @@ class vacas {
         }
     }
 
-    async listVacas() { //altgr + comilla inbertida
+    async listVacas(idUsuario) { //altgr + comilla inbertida
         try {
-            return await vaca_model.findAll({ where: {id_usuario: idusuario} })         
+            return await vaca_model.findAll({ where: {id_usuario: idUsuario} })         
         } catch (error) {
             return error
         }
