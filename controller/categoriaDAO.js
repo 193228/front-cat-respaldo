@@ -2,7 +2,8 @@ const categoria_model = require('../model/categorias')
 
 class categorias {
 
-    constructor(nombre,descripcion){
+    constructor(id_usuario,nombre,descripcion){
+        this.id_usuario = id_usuario
         this.nombre = nombre,
         this.descripcion = descripcion
     }

@@ -15,7 +15,7 @@ router.get('/allCategorias',async(req,res)=>{
 
 router.post('/createCategoria',async(req,res)=>{
     var valores;
-    const nuevaCategoria = new categoria_DAO(req.body.nombre,req.body.descripcion);
+    const nuevaCategoria = new categoria_DAO(req.body.id_usuario,req.body.nombre,req.body.descripcion);
     await categoria_DAO.prototype.createCategoria(nuevaCategoria).then(function (user){
         valores = user.dataValues;
         res.send(valores)
