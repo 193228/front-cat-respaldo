@@ -68,6 +68,14 @@ class becerroCategory {
         }
     }
 
+    async deleteBecerrobyIdBecerro(idAnimal){
+        try {
+            await becerro_category_model.destroy({where:{id_becerro:idAnimal}})//game.create(usuario)
+            return  {status:'ok'}
+        } catch (error) {
+            return error
+        }
+    }
 }
 
 module.exports = becerroCategory
